@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway</title>
+    <link rel="stylesheet" href="payment.css">
+   
+</head>
+<body>
+
+<div class="payment-container">
+    <h2>Payment Details</h2>
+
+    <table>
+        <tr>
+            <th></th>
+            <th>First Year</th>
+            <th>Second Year</th>
+        </tr>
+        <tr>
+            <td>General Amenities Fund</td>
+            <td>₹ 700/- Per Annum</td>
+            <td>₹ 700/- Per Annum</td>
+        </tr>
+        <tr>
+            <td>Establishment Charges</td>
+            <td>₹ 300/- Per Annum</td>
+            <td>₹ 300/- Per Annum</td>
+        </tr>
+        <tr>
+            <td>Room Rent</td>
+            <td>Exempted</td>
+            <td>Exempted</td>
+        </tr>
+        <tr>
+            <td>Mess Fees</td>
+            <td>₹ 13,098/-</td>
+            <td>₹ 13,098/-</td>
+        </tr>
+        <tr class="total">
+            <td>Total</td>
+            <td>₹ 14,098/-</td>
+            <td>₹ 14,098/-</td>
+        </tr>
+    </table>
+
+    <button class="btn-proceed" onclick="proceedToPayment()">Proceed to Pay</button>
+</div>
+
+<script>
+    function proceedToPayment() {
+        // Redirect to the payment gateway page
+        window.location.href = "payment_gateway.html";
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Hostel Management System</title>
+    <style>
+        /* Ensure the body takes up the full height */
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+           
+        }
+
+        /* Container for the background image */
+        .background-container {
+            position: relative;
+            height: 100%;
+            width: 100%;
+           
+            scrollbar-width: 50px;
+        
+        }
+
+        /* Blurred background image */
+        .background-container::before {
+            content: "";
+            background-image: url('university.jpg'); /* Replace with your background image path */
+            background-size: cover;
+            background-position: center;
+            filter: blur(8px);
+            -webkit-filter: blur(8px);
+            height: 200%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        /* Overlay content */
+        .content {
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.6); /* Semi-transparent background for readability */
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 800px;
+            text-align: center;
+           
+        }
+
+        .content h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .content {
+                width: 90%;
+                padding: 20px;
+            }
+
+            .content h1 {
+                font-size: 28px;
+            }
+
+            .content p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <div class="content">
+            <h1>Welcome to Pondicherry University Hostel Management System</h1>
+            <p>
+                Our Hostel Management System is designed to provide a seamless experience for both students and administrators.
+                Easily check room availability, manage bookings, and stay updated with all hostel-related information. Whether you are
+                a new student looking for accommodation or an administrator managing multiple hostels, our system offers the tools
+                you need to ensure a comfortable and organized living environment.
+            </p>
+            <p>
+                Features include:
+                <ul style="text-align: left; display: inline-block; margin-top: 10px;">
+                    <li>Real-time room availability status</li>
+                    <li>Online booking and payment options</li>
+                    <li>Comprehensive admin dashboard</li>
+                    <li>Warden contact information and support</li>
+                    <li>Detailed hostel profiles and amenities</li>
+                </ul>
+            </p>
+            <p>
+                Navigate through the menu to explore different hostels, log in to your account, or contact us for more information.
+                We are committed to making your stay at Pondicherry University comfortable and enjoyable.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

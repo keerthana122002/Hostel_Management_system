@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Signup</title>
+     <link rel="stylesheet" href="signup.css">
+    <script>
+        function validateForm() {
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+            const gender = document.querySelector('input[name="gender"]:checked');
+
+            // Validate username (only alphabets, minimum 6 characters)
+            const usernamePattern = /^[A-Za-z]{6,}$/;
+            if (!usernamePattern.test(username)) {
+                alert("Username must contain only alphabetic letters and be at least 6 characters long.");
+                return false;
+            }
+
+            // Validate email format
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+            if (!emailPattern.test(email)) {
+                alert("Email must be in the format: example@gmail.com");
+                return false;
+            }
+
+            // Validate gender selection
+            if (!gender) {
+                alert("Please select a gender.");
+                return false;
+            }
+
+            // Validate password complexity
+            const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+            if (!passwordPattern.test(password)) {
+                alert("Password must be at least 8 characters long and include letters, numbers, and special symbols.");
+                return false;
+            }
+
+            // Check if password and confirm password match
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+
+            return true; // Form is valid
+        }
+    </script>
+</head>
+<body>
+
+    <div class="signup-container">
+        <h2>User Signup</h2>
+        <form action="signupserver.php" method="POST" onsubmit="return validateForm()">
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            
+                <input type="radio" id="male" name="gender" value="Male"> Male
+                <input type="radio" id="female" name="gender" value="Female"> Female
+                <input type="radio" id="other" name="gender" value="Other"> Others
+           
+            <input type="email" id="email" name="email" placeholder="Enter your email (example@gmail.com)" required>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+            <button type="submit">User Sign Up</button> 
+        </form>
+    </div>
+
+</body>
+</html>

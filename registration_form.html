@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration Form</title>
+    <link rel="stylesheet" href="form.css">
+    <form action="register_process.php" method="POST" onsubmit="return validateForm()">
+    <script>
+        function validateForm() {
+            const namePattern = /^[A-Za-z\s]+$/;
+            const regNoPattern = /^[0-9]+$/;
+            const phonePattern = /^\d{10}$/;
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+
+            const fullName = document.getElementById('full_name').value;
+            const regNo = document.getElementById('reg_no').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const gender = document.querySelector('input[name="gender"]:checked');
+
+            if (!namePattern.test(fullName)) {
+                alert("Full name must contain only alphabetic letters.");
+                return false;
+            }
+
+            if (!regNoPattern.test(regNo)) {
+                alert("Register number must contain only numbers.");
+                return false;
+            }
+
+            if (!emailPattern.test(email)) {
+                alert("Email must be in the format 'example@gmail.com'.");
+                return false;
+            }
+
+            if (!phonePattern.test(phone)) {
+                alert("Phone number must contain exactly 10 digits.");
+                return false;
+            }
+
+            if (!gender) {
+                alert("Please select your gender.");
+                return false;
+            }
+
+            return true;
+        }
+
+        // Hostel Selection Based on Gender
+        function updateHostelOptions() {
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+            const hostelSelect = document.getElementById('hostel_name');
+            hostelSelect.innerHTML = ''; // Clear previous options
+
+            if (gender === 'Male') {
+                hostelSelect.innerHTML += '<option value="Kannadhasan">Kannadhasan</option>';
+                hostelSelect.innerHTML += '<option value="Kamban">Kamban</option>';
+            } else if (gender === 'Female') {
+                hostelSelect.innerHTML += '<option value="Kannagi">Kannagi</option>';
+                hostelSelect.innerHTML += '<option value="Madam Curie">Madam Curie</option>';
+            }
+        }
+    </script>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-image: url('hostel.jpg'); /* Replace 'your-image-path.jpg' with the actual path of the image */
+    background-size: cover; /* This makes the image cover the entire background */
+    background-repeat: no-repeat; /* This prevents the image from repeating */
+    background-position: center; /* This centers the background image */
+    margin: 0;
+    padding: 20px;
+}
+
+
+        .form-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            flex: 0 0 48%;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 80%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .gender-group {
+            margin-bottom: 15px;
+        }
+
+        .gender-group label {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>User Registration Form</h2>
+        <form action="register_process.php" method="POST" onsubmit="return validateForm()">
+            <!-- Name and Register Number -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="full_name">Full Name</label>
+                    <input type="text" id="full_name" name="full_name" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg_no">Register Number</label>
+                    <input type="text" id="reg_no" name="reg_no" placeholder="Enter your register number" required>
+                </div>
+            </div>
+
+            <!-- Email and Phone -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email (example@gmail.com)" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+                </div>
+            </div>
+
+            <!-- Gender Selection -->
+            <div class="gender-group">
+                <label for="gender">Gender:</label>
+                <label><input type="radio" name="gender" value="Male" onclick="updateHostelOptions()" required> Male</label>
+                <label><input type="radio" name="gender" value="Female" onclick="updateHostelOptions()" required> Female</label>
+            </div>
+
+            <!-- Hostel Name -->
+            <div class="form-group">
+                <label for="hostel_name">Hostel Name</label>
+                <select id="hostel_name" name="hostel_name" required>
+                    <!-- Hostel options will be added based on gender selection -->
+                </select>
+            </div>
+
+            <!-- Course and Department -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="course">Course</label>
+                    <select id="course" name="course" required>
+                        <option value="B.Sc">B.Sc</option>
+                        <option value="M.Sc">M.Sc</option>
+                        <option value="B.Tech">B.Tech</option>
+                        <option value="M.Tech">M.Tech</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="department">Department</label>
+                    <select id="department" name="department" required>
+                        <option value="CSE">Computer Science</option>
+                        <option value="ECE">Electronics & Communication</option>
+                        <option value="MECH">Mechanical</option>
+                        <option value="CIVIL">Civil</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Year of Joining and Passed Out Year -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="joining_year">Year of Joining</label>
+                    <input type="date" id="joining_year" name="joining_year" required>
+                </div>
+                <div class="form-group">
+                    <label for="passedout_year">Passed Out Year</label>
+                    <input type="date" id="passedout_year" name="passedout_year" required>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel Categories</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f1f1;
+            padding: 10px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .accordion {
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: background-color 0.4s ease;
+            font-size: 16px;
+        }
+
+        .accordion:hover {
+            background-color: #444;
+        }
+
+        .panel {
+            padding: 0 15px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .panel a {
+            display: block;
+            color: #333;
+            padding: 8px 0;
+            text-decoration: none;
+        }
+
+        .panel a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hostel Features -->
+    <h2>Hostel Features</h2>
+
+    <!-- Girls Hostel Section -->
+    <button class="accordion">Girls Hostel</button>
+    <div class="panel">
+        <a href="kannagi.html" target="rightFrame">Kanagi Hostel</a>
+        <a href="madam_curie.html" target="rightFrame">Madam Curie Hostel</a>
+        <a href="girlswarden.pdf" target="rightFrame">Girls Hostel Warden List</a>
+    </div>
+
+    <!-- Boys Hostel Section -->
+    <button class="accordion">Boys Hostel</button>
+    <div class="panel">
+        <a href="kannadhasan.html" target="rightFrame">Kannadhasan Hostel</a>
+        <a href="kamban.html" target="rightFrame">Kamban Hostel</a>
+        <a href="boyswarden.pdf" target="rightFrame">Boys Hostel Warden List</a>
+    </div>
+    <button class="accordion">Hostel_Fees</button>
+    <div class="panel">
+        <a href="hostel_fees-details.pdf" target="rightFrame">Fees_Structure</a>
+    </div>
+    <script>
+        // JavaScript for accordion menu functionality
+        var acc = document.getElementsByClassName("accordion");
+        for (var i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

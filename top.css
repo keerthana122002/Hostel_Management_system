@@ -1,0 +1,58 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+/* Title Styling */
+.header {
+    background-color: #0056b3;
+    color: white;
+    padding: 30px;
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+}
+
+/* Logo Styling */
+.logo {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Navigation bar styling */
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+   
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 30px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}

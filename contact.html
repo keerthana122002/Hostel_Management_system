@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Hostel Management System</title>
+   <link rel="stylesheet" href="contact.css">
+  
+
+   <style>
+    body{
+        background-image: url('hostel.jpg'); /* Replace 'your-image-path.jpg' with the actual path of the image */
+    background-size: cover; /* This makes the image cover the entire background */
+    background-repeat: no-repeat; /* This prevents the image from repeating */
+    background-position: center; /* This centers the background image */
+height: 300%;
+    }
+   </style>
+</head>
+<body>
+
+    <!-- Main Content Section -->
+    <div class="container">
+        <h1>Contact Our Hostel Wardens</h1>
+        <p>If you have any questions or concerns, please feel free to reach out to our hostel wardens:</p>
+
+        <div class="warden-container">
+            <!-- Warden 1 -->
+            <div class="warden">
+                <img src="girlshostelwarden.png" alt="Warden 1"> <!-- Replace with actual image path -->
+                <h2>Ms. Kanika Sharma</h2>
+                <p>Girls Hostel Warden</p>
+                <p>Email: kanika.sharma@university.com</p>
+                <a href="https://mail.google.com/mail/u/1/#inbox">Email Warden</a>
+            </div>
+
+            <!-- Warden 2 -->
+            <div class="warden">
+                <img src="boyshostelwarden.png" alt="Warden 2"> <!-- Replace with actual image path -->
+                <h2>Mr. Ramesh Kumar</h2>
+                <p>Boys Hostel Warden</p>
+                <p>Email: ramesh.kumar@university.com</p>
+                <a href="https://mail.google.com/mail/u/1/#inbox">Email Warden</a>
+            </div>
+        </div>
+
+        <!-- Feedback Section -->
+        <div class="feedback-section">
+            <h2>Feedback</h2>
+            <p>Your feedback is important to us. Please share your thoughts below:</p>
+            <form class="feedback-form" action="feedback.php" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="5" placeholder="Your Feedback" required></textarea>
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

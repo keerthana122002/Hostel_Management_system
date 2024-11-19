@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>hostel Website</title>
+    <style>
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header img {
+            height: 150px;
+        }
+        .header span {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav-links a {
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        body {
+            background-image: url("university.jpg");
+            background-size: cover;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<!-- Main layout structure using frames -->
+<frameset rows="20%,*,10%" noresize>
+    <!-- Top frame (Header) -->
+    <frame src="top.html" name="topFrame">
+
+    <!-- Middle section: Left and Right frames -->
+    <frameset cols="20%,*">
+        <!-- Left frame (Navigation) -->
+        <frame src="left.html" name="leftFrame">
+
+        <!-- Right frame (Main content) -->
+        <frame src="right.html" name="rightFrame" >
+    </frameset>
+
+    <!-- Bottom frame (Footer) -->
+    <frame src="bottom.html" name="bottomFrame">
+</frameset>
+
+<noframes>
+    <body>
+        <p>Your browser does not support frames.</p>
+    </body>
+</noframes>
+</html>

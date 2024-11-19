@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Admin Login</title>
+    <link rel="stylesheet" href="login.css">
+    <script>
+        function validateForm() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Validate username (only alphabets)
+            const usernamePattern = /^[A-Za-z]+$/;
+            if (!usernamePattern.test(username)) {
+                alert("Username must contain only alphabetic letters.");
+                return false;
+            }
+
+            // Validate password (at least one letter and one number)
+            // Validate password complexity
+            const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+            if (!passwordPattern.test(password)) {
+                alert("Password must be at least 8 characters long and include letters, numbers, and special symbols.");
+                return false;
+            }
+return true;
+        }
+    </script>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Admin Login</h2>
+        <form action="admin_loginserver.php" method="POST" onsubmit="return validateForm()">
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+</body>
+</html>

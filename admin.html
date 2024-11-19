@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="admin.css">
+    
+</head>
+<body>
+
+<div class="header">
+    <h2>Admin Panel - Hostel Management</h2>
+</div>
+
+<div class="menu">
+    <button onclick="showTotalStudents()">Total Students Registered</button>
+    <button onclick="showGirlsHostel()">Girls Hostel Details</button>
+    <button onclick="showBoysHostel()">Boys Hostel Details</button>
+</div>
+
+<div class="content" id="content-area">
+    <h3>Welcome to Admin Panel</h3>
+    <p>Click on the buttons above to view the respective details.</p>
+</div>
+
+<script>
+    function showTotalStudents() {
+        // Fetch the total number of students from the server
+        fetch('total_students.php')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('content-area').innerHTML = data;
+            });
+    }
+
+    function showGirlsHostel() {
+        // Fetch the list of female students from the server
+        fetch('girls_hostel.php')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('content-area').innerHTML = data;
+            });
+    }
+
+    function showBoysHostel() {
+        // Fetch the list of male students from the server
+        fetch('boys_hostel.php')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('content-area').innerHTML = data;
+            });
+    }
+</script>
+
+</body>
+</html>
